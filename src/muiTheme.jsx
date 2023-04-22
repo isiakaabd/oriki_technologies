@@ -46,15 +46,15 @@ export const muiTheme = createTheme({
       fontWeight: 500,
     },
     h4: {
-      fontSize: "clamp(1.6rem,2vw,2.4rem)",
+      fontSize: "clamp(1.8rem,2vw,2.4rem)",
       fontWeight: 500,
     },
     h5: {
-      fontSize: "clamp(1.4rem,2vw,1.85rem)",
+      fontSize: "clamp(1.4rem,2vw,2.1rem)",
       fontWeight: 500,
     },
     h6: {
-      fontSize: "clamp(1.9rem,2vw,2.2rem)",
+      fontSize: "clamp(1.2rem,2vw,1.8rem)",
       fontWeight: 500,
     },
 
@@ -65,10 +65,12 @@ export const muiTheme = createTheme({
     },
   },
   components: {
-    MuiPaper: {
+    MuiDivider: {
       styleOverrides: {
-        boxShadow:
-          "0px 5px 5px -3px rgba(0,0,0,.5),0px 8px 10px 1px rgba(0,0,0,0.01),0px 3px 14px 2px rgba(0,0,0,0.01)",
+        root: {
+          backgroundColor: "#fff",
+          width: "2px",
+        },
       },
     },
   },

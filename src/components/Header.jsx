@@ -46,7 +46,7 @@ function Header() {
       position="static"
       elevation={0}
       color="secondary"
-      sx={{ height: "max-content", background: "transparent" }}
+      sx={{ height: "max-content", py: 1, background: "transparent" }}
     >
       <Container maxWidth="lg">
         <Toolbar disableGutters>
