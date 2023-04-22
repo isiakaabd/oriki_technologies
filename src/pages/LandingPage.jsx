@@ -55,7 +55,7 @@ const LandingPage = () => {
         container
         sx={{
           height: { md: "calc(100vh - 80px)" },
-          background: `#E20489 url(${img01}) center no-repeat `,
+          background: `#18B067 url(${img01}) center no-repeat `,
           backgroundSize: "cover",
           backgroundOrigin: "content-box",
           mb: "3rem",
