@@ -1,8 +1,6 @@
 import {
   AppBar,
   Grid,
-  ListItemButton,
-  ListItemIcon,
   List,
   Avatar,
   ListItemText,
@@ -13,14 +11,6 @@ import {
   Typography,
   Divider,
 } from "@mui/material";
-
-import {
-  LocationOnOutlined,
-  MailOutline,
-  MapOutlined,
-} from "@mui/icons-material";
-import { useTheme } from "@emotion/react";
-import { Link } from "react-router-dom";
 import Socials from "./Socials";
 import { Fragment } from "react";
 import { logo2 } from "@assets/index";
@@ -40,8 +30,6 @@ const text = {
   fontWeight: 500,
 };
 export default function Footer() {
-  const theme = useTheme();
-
   return (
     <Fragment>
       <CssBaseline />

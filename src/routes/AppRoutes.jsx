@@ -6,7 +6,6 @@ import { LandingPage, Products, JoinUs } from "@/pages";
 import { MainPage } from "@/components";
 
 const AppRoutes = () => {
-  console.log(muiTheme);
   return (
     <ThemeProvider theme={muiTheme}>
       <BrowserRouter>

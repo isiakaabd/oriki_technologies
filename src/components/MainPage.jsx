@@ -1,7 +1,6 @@
-import { Container, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import { Header, Footer } from ".";
 import { Outlet } from "react-router-dom";
-import { ContactPhone } from "@mui/icons-material";
 
 const MainPage = () => {
   return (
