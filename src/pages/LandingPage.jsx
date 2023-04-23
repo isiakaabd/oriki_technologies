@@ -1,4 +1,6 @@
-import { img01, img03, img04 } from "@assets/index";
+import { Cards } from "@/components";
+import { img01, img03, img04, Chats, Media, Mobile } from "@assets";
+
 import {
   Avatar,
   Container,
@@ -10,6 +12,23 @@ import {
 } from "@mui/material";
 
 const LandingPage = () => {
+  const cardArr = [
+    {
+      Icon: Chats,
+      head: "General Support",
+      sub: "support@oriki.letters.africa",
+    },
+    {
+      Icon: Mobile,
+      head: "Mobile",
+      sub: "+234 705 353 9199",
+    },
+    {
+      Icon: Media,
+      head: "Media",
+      sub: "socials@oriki.letters.africa",
+    },
+  ];
   const arr = [
     {
       abb: "I",
@@ -201,6 +220,39 @@ const LandingPage = () => {
                   borderRadius: "2rem",
                 }}
               />
+            </Grid>
+          </Grid>
+        </Grid>
+      </Container>
+      <Container maxWidth="lg" height="100%">
+        <Grid
+          item
+          container
+          width={"100%"}
+          flexDirection={"column"}
+          sx={{ py: 4, p: 10, justifyContent: "space-between", height: "100%" }}
+        >
+          <Grid item>
+            <Typography
+              variant="h1"
+              color={"secondary"}
+              fontWeight={800}
+              width={"100%"}
+              textAlign={"center"}
+            >
+              Contact Us
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Grid
+              item
+              container
+              width={"100%"}
+              sx={{ py: 4, justifyContent: "space-between", height: "100%" }}
+            >
+              {cardArr.map((ite) => (
+                <Cards key={ite.head} item={ite} />
+              ))}
             </Grid>
           </Grid>
         </Grid>

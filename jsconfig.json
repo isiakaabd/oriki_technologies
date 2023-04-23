@@ -22,6 +22,9 @@
       ],
       "@images/*": [
         "src/assets/images/*"
+      ],
+      "@svgs/*": [
+        "src/assets/svgs/*"
       ]
     }
   }
