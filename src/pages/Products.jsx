@@ -15,8 +15,14 @@ const Products = () => {
       }}
     >
       <Container maxWidth="lg" height="100%">
-        <Grid item container gap={"4rem"} sx={{ py: "2rem", height: "100%" }}>
-          <Grid item flex={1} height="100%">
+        <Grid
+          item
+          container
+          gap={{ md: "4rem", xs: "2rem" }}
+          flexDirection={{ xs: "column", sm: "row" }}
+          sx={{ py: "2rem", height: "100%" }}
+        >
+          <Grid item flex={1} height="100%" order={{ md: 1, xs: 2 }}>
             <Grid item container flexDirection={"column"} height="100%">
               <Grid item mb={4}>
                 <Avatar
