@@ -11,6 +11,7 @@ import {
   Slide,
   Typography,
 } from "@mui/material";
+import { AnimatePresence, motion } from "framer-motion";
 import { useRef } from "react";
 
 const LandingPage = () => {
@@ -69,7 +70,22 @@ const LandingPage = () => {
       value: " That will possitively impact YOU",
     },
   ];
-  const containerRef = useRef(null);
+  const variants = {
+    open: {
+      transition: { staggerChildren: 0.8, delayChildren: 0.2 },
+    },
+    closed: {
+      transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    },
+  };
+  const variantsLi = {
+    initial: {
+      scale: 0,
+    },
+    animate: {
+      scale: 1,
+    },
+  };
 
   return (
     <Grid item container>
@@ -95,17 +111,29 @@ const LandingPage = () => {
             justifyContent={"center"}
             sx={{ height: "100%", color: "#fff" }}
           >
-            <Typography
-              sx={{
-                fontWeight: 800,
-                width: "100%",
-                textAlign: "left",
-                lineHeight: "12rem",
-                fontSize: { md: "8vw", xs: "12vw", sm: "7rem" },
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{
+                opacity: 1,
+                transition: {
+                  duration: 3,
+                },
               }}
+              style={{ textAlign: "left", width: "100%" }}
+              viewport={{ once: true }}
             >
-              Our Mission
-            </Typography>
+              <Typography
+                sx={{
+                  fontWeight: 800,
+                  width: "100%",
+
+                  lineHeight: "12rem",
+                  fontSize: { md: "8vw", xs: "12vw", sm: "7rem" },
+                }}
+              >
+                Our Mission
+              </Typography>
+            </motion.p>
             <Typography
               variant="h3"
               textAlign="left"
@@ -131,78 +159,85 @@ const LandingPage = () => {
           flexDirection={{ xs: "column", sm: "row" }}
         >
           <Grid item flex={1}>
-            <Avatar
-              src={img03}
-              variant="square"
-              sx={{
-                width: "100%",
-                height: "100%",
-                maxHeight: "30rem",
-                borderRadius: "2rem",
+            <motion.div
+              initial={{ translateX: "-500px" }}
+              whileInView={{
+                translateX: 0,
+                transition: {
+                  duration: 3,
+                },
               }}
-            />
+              viewport={{ once: true }}
+              style={{ textAlign: "left", width: "100%" }}
+            >
+              <Avatar
+                src={img03}
+                variant="square"
+                sx={{
+                  width: "100%",
+                  height: "100%",
+                  maxHeight: "30rem",
+                  borderRadius: "2rem",
+                }}
+              />
+            </motion.div>
           </Grid>
           <Grid item flex={1}>
-            <div ref={containerRef}>
-              <Slide
-                direction="top"
-                in={true}
-                mountOnEnter
-                unmountOnExit
-                timeout={4000}
-                container={containerRef.current}
+            <motion.p
+              initial={{ translateX: "100px" }}
+              whileInView={{
+                translateX: "0",
+                transition: {
+                  duration: 3,
+                },
+              }}
+              viewport={{ once: true }}
+              style={{ textAlign: "left", width: "100%" }}
+            >
+              <Typography
+                variant="h1"
+                color={"secondary"}
+                width={"100%"}
+                textAlign={"right"}
+                gutterBottom
               >
-                <Typography
-                  variant="h1"
-                  color={"secondary"}
-                  width={"100%"}
-                  textAlign={"right"}
-                  gutterBottom
-                >
-                  Our Approach
-                </Typography>
-              </Slide>
-              <Slide
-                direction="left"
-                in={true}
-                mountOnEnter
-                unmountOnExit
-                timeout={4000}
-                // container={containerRef.current}
+                Our Approach
+              </Typography>
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{
+                opacity: 1,
+                transition: {
+                  duration: 5,
+                },
+              }}
+              viewport={{ once: true }}
+              style={{ textAlign: "left", width: "100%" }}
+            >
+              <Typography
+                variant="h6"
+                color={"secondary"}
+                width={"100%"}
+                textAlign={"justify"}
+                gutterBottom
               >
-                <Typography
-                  variant="h6"
-                  color={"secondary"}
-                  width={"100%"}
-                  textAlign={"justify"}
-                  gutterBottom
-                >
-                  Our approach to Product design at Oriki Technologie is
-                  centered on adding value. A deep understanding of our target
-                  audience in relation to the dynamics of the market is what
-                  sets us apart.
-                </Typography>
-              </Slide>
-              <Slide
-                direction="up"
-                in={true}
-                mountOnEnter
-                unmountOnExit
-                timeout={4000}
-                // container={containerRef.current}
+                Our approach to Product design at Oriki Technologie is centered
+                on adding value. A deep understanding of our target audience in
+                relation to the dynamics of the market is what sets us apart.
+              </Typography>
+
+              <Typography
+                variant="h6"
+                color={"secondary"}
+                width={"100%"}
+                textAlign={"justify"}
               >
-                <Typography
-                  variant="h6"
-                  color={"secondary"}
-                  width={"100%"}
-                  textAlign={"justify"}
-                >
-                  At Oriki Technologies, we do not see gaps in the market, we
-                  see opportunities to build bridges through innovation,
-                  strategic thinking and precise execution.{" "}
-                </Typography>
-              </Slide>
-            </div>
+                At Oriki Technologies, we do not see gaps in the market, we see
+                opportunities to build bridges through innovation, strategic
+                thinking and precise execution.{" "}
+              </Typography>
+            </motion.div>
           </Grid>
         </Grid>
       </Container>
@@ -233,40 +268,61 @@ const LandingPage = () => {
             >
               INGENUITY
             </Typography>
-            <List dense>
+
+            <List dense component={motion.ul} variants={variants}>
               {arr.map((ite) => (
-                <ListItem key={ite.value} disableGutters disablePadding>
-                  <ListItemText
-                    primaryTypographyProps={{ textAlign: "left" }}
-                    primary={
-                      <Typography
-                        color={"secondary"}
-                        variant="h6"
-                        fontWeight={700}
-                      >
-                        {ite.abb} -
-                        <Typography variant="span" fontWeight={500}>
-                          {ite.value}
+                <AnimatePresence>
+                  <ListItem
+                    key={ite.value}
+                    disableGutters
+                    {...variantsLi}
+                    disablePadding
+                    component={motion.li}
+                  >
+                    <ListItemText
+                      primaryTypographyProps={{ textAlign: "left" }}
+                      primary={
+                        <Typography
+                          color={"secondary"}
+                          variant="h6"
+                          fontWeight={700}
+                        >
+                          {ite.abb} -
+                          <Typography variant="span" fontWeight={500}>
+                            {ite.value}
+                          </Typography>
                         </Typography>
-                      </Typography>
-                    }
-                  />
-                </ListItem>
+                      }
+                    />
+                  </ListItem>
+                </AnimatePresence>
               ))}
             </List>
           </Grid>
           <Grid item flex={1} sx={{ height: "100%" }}>
             <Grid item container justifyContent={"center"}>
-              <Avatar
-                src={img04}
-                variant="square"
-                sx={{
-                  width: "100%",
-                  height: "100%",
-                  maxHeight: "30rem",
-                  borderRadius: "2rem",
+              <motion.div
+                initial={{ translateX: "500px" }}
+                whileInView={{
+                  translateX: 0,
+                  transition: {
+                    duration: 3,
+                  },
                 }}
-              />
+                viewport={{ once: true }}
+                style={{ textAlign: "left", width: "100%" }}
+              >
+                <Avatar
+                  src={img04}
+                  variant="square"
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    maxHeight: "30rem",
+                    borderRadius: "2rem",
+                  }}
+                />
+              </motion.div>
             </Grid>
           </Grid>
         </Grid>

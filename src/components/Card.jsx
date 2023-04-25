@@ -5,6 +5,7 @@ import {
   Typography,
   CardActionArea,
 } from "@mui/material";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const Cards = ({ item: { Icon, head, sub } }) => {
   return (
@@ -14,7 +15,6 @@ const Cards = ({ item: { Icon, head, sub } }) => {
         sx={{
           height: "100%",
           "&:hover": {
-            transition: "color ease-in 3ms",
             "& .MuiTypography-root": {
               color: "#fff",
             },
@@ -27,6 +27,14 @@ const Cards = ({ item: { Icon, head, sub } }) => {
             fill: "#fff",
             stroke: "#fff",
           },
+        }}
+        component={motion.div}
+        initial={{ scale: 0.5, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        whileHover={{
+          scale: 1.2,
+          transition: { duration: 0.3 },
+          background: "#18B067",
         }}
       >
         <CardActionArea sx={{ height: "100%" }}>

@@ -59,7 +59,7 @@ export default function Footer() {
                   flexWrap: { md: "nowrap", xs: "wrap" },
                 }}
               >
-                <Grid item flex={{ xs: 2, md: 1 }}>
+                <Grid item>
                   <Avatar
                     src={logo2}
                     variant="square"

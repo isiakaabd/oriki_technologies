@@ -14,6 +14,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { logo } from "@assets";
+import { motion, useCycle } from "framer-motion";
 
 const pages = [
   {
@@ -31,14 +32,41 @@ const pages = [
 ];
 
 function Header() {
+  const [isOpen, toggleOpen] = useCycle(false, true);
   const [anchorElNav, setAnchorElNav] = useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
+    toggleOpen();
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+    toggleOpen();
+  };
+  const variants = {
+    open: {
+      transition: { staggerChildren: 0.8, delayChildren: 0.2 },
+    },
+    closed: {
+      transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    },
+  };
+  const variantsLi = {
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        y: { stiffness: 1000, velocity: -100 },
+      },
+    },
+    closed: {
+      y: 50,
+      opacity: 0,
+      transition: {
+        y: { stiffness: 1000 },
+      },
+    },
   };
 
   return (
@@ -63,52 +91,68 @@ function Header() {
           />
 
           <Box sx={{ ml: "auto", display: { xs: "flex", sm: "none" } }}>
-            <IconButton
-              size="large"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon
-                sx={{ fontSize: "3rem", color: "#18B067" }}
-                color="main"
-              />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem
-                  key={page.route}
-                  onClick={handleCloseNavMenu}
-                  component={Link}
-                  to={page.route}
+            <motion.nav initial={false} animate={isOpen ? "open" : "closed"}>
+              <IconButton
+                size="large"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon
+                  sx={{ fontSize: "3rem", color: "#18B067" }}
+                  color="main"
+                />
+              </IconButton>
+
+              <motion.ul variants={variants}>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorElNav}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                  open={Boolean(anchorElNav)}
+                  onClose={handleCloseNavMenu}
+                  sx={{
+                    display: { xs: "block", md: "none" },
+                  }}
                 >
-                  <Typography
-                    textAlign="center"
-                    sx={{ fontSize: "1.6rem", fontWeight: 500 }}
-                  >
-                    {page.name}
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+                  {pages.map((page) => (
+                    <motion.li
+                      variants={variantsLi}
+                      whileHover={{ scale: 0.95 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <MenuItem
+                        key={page.route}
+                        onClick={handleCloseNavMenu}
+                        component={Link}
+                        to={page.route}
+                        disableTouchRipple
+                        disableRipple
+                      >
+                        <Typography
+                          sx={{
+                            fontSize: "1.6rem",
+                            width: "100%",
+                            fontWeight: 500,
+                          }}
+                        >
+                          {page.name}
+                        </Typography>
+                      </MenuItem>
+                    </motion.li>
+                  ))}
+                </Menu>
+              </motion.ul>
+            </motion.nav>
           </Box>
 
           <Box gap={4} sx={{ display: { xs: "none", sm: "flex" } }}>
