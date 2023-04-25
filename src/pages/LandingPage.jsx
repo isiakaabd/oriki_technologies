@@ -8,8 +8,10 @@ import {
   List,
   ListItem,
   ListItemText,
+  Slide,
   Typography,
 } from "@mui/material";
+import { useRef } from "react";
 
 const LandingPage = () => {
   const cardArr = [
@@ -67,15 +69,18 @@ const LandingPage = () => {
       value: " That will possitively impact YOU",
     },
   ];
+  const containerRef = useRef(null);
+
   return (
     <Grid item container>
       <Grid
         item
         container
         sx={{
-          height: { md: "calc(100vh - 80px)" },
+          height: { xs: "50vh", md: "calc(100vh - 80px)" },
           background: `#18B067 url(${img01}) center no-repeat `,
           backgroundSize: "cover",
+
           backgroundOrigin: "content-box",
           mb: "3rem",
           textAlign: "left",
@@ -96,7 +101,7 @@ const LandingPage = () => {
                 width: "100%",
                 textAlign: "left",
                 lineHeight: "12rem",
-                fontSize: { md: "9rem", xs: "5rem", sm: "6rem" },
+                fontSize: { md: "8vw", xs: "12vw", sm: "7rem" },
               }}
             >
               Our Mission
@@ -118,7 +123,13 @@ const LandingPage = () => {
         </Container>
       </Grid>
       <Container maxWidth="lg">
-        <Grid item container gap={"4rem"} sx={{ py: "3rem" }}>
+        <Grid
+          item
+          container
+          sx={{ py: "3rem" }}
+          gap={{ md: "4rem", xs: "2rem" }}
+          flexDirection={{ xs: "column", sm: "row" }}
+        >
           <Grid item flex={1}>
             <Avatar
               src={img03}
@@ -132,41 +143,77 @@ const LandingPage = () => {
             />
           </Grid>
           <Grid item flex={1}>
-            <Typography
-              variant="h1"
-              color={"secondary"}
-              width={"100%"}
-              textAlign={"right"}
-              gutterBottom
-            >
-              Our Approach
-            </Typography>
-            <Typography
-              variant="h6"
-              color={"secondary"}
-              width={"100%"}
-              textAlign={"justify"}
-              gutterBottom
-            >
-              Our approach to Product design at Oriki Technologie is centered on
-              adding value. A deep understanding of our target audience in
-              relation to the dynamics of the market is what sets us apart.
-            </Typography>
-            <Typography
-              variant="h6"
-              color={"secondary"}
-              width={"100%"}
-              textAlign={"justify"}
-            >
-              At Oriki Technologies, we do not see gaps in the market, we see
-              opportunities to build bridges through innovation, strategic
-              thinking and precise execution.{" "}
-            </Typography>
+            <div ref={containerRef}>
+              <Slide
+                direction="top"
+                in={true}
+                mountOnEnter
+                unmountOnExit
+                timeout={4000}
+                container={containerRef.current}
+              >
+                <Typography
+                  variant="h1"
+                  color={"secondary"}
+                  width={"100%"}
+                  textAlign={"right"}
+                  gutterBottom
+                >
+                  Our Approach
+                </Typography>
+              </Slide>
+              <Slide
+                direction="left"
+                in={true}
+                mountOnEnter
+                unmountOnExit
+                timeout={4000}
+                // container={containerRef.current}
+              >
+                <Typography
+                  variant="h6"
+                  color={"secondary"}
+                  width={"100%"}
+                  textAlign={"justify"}
+                  gutterBottom
+                >
+                  Our approach to Product design at Oriki Technologie is
+                  centered on adding value. A deep understanding of our target
+                  audience in relation to the dynamics of the market is what
+                  sets us apart.
+                </Typography>
+              </Slide>
+              <Slide
+                direction="up"
+                in={true}
+                mountOnEnter
+                unmountOnExit
+                timeout={4000}
+                // container={containerRef.current}
+              >
+                <Typography
+                  variant="h6"
+                  color={"secondary"}
+                  width={"100%"}
+                  textAlign={"justify"}
+                >
+                  At Oriki Technologies, we do not see gaps in the market, we
+                  see opportunities to build bridges through innovation,
+                  strategic thinking and precise execution.{" "}
+                </Typography>
+              </Slide>
+            </div>
           </Grid>
         </Grid>
       </Container>
       <Container maxWidth="lg">
-        <Grid item container gap={"4rem"} sx={{ py: "3rem" }}>
+        <Grid
+          item
+          container
+          gap={{ md: "4rem", xs: "2rem" }}
+          flexDirection={{ xs: "column", sm: "row" }}
+          sx={{ py: "3rem" }}
+        >
           <Grid item flex={1}>
             <Typography
               variant="h1"
@@ -230,7 +277,12 @@ const LandingPage = () => {
           container
           width={"100%"}
           flexDirection={"column"}
-          sx={{ py: 4, p: 10, justifyContent: "space-between", height: "100%" }}
+          sx={{
+            py: 4,
+            p: { md: 10, sm: 2, xs: 0 },
+            justifyContent: "space-between",
+            height: "100%",
+          }}
         >
           <Grid item>
             <Typography
@@ -248,7 +300,13 @@ const LandingPage = () => {
               item
               container
               width={"100%"}
-              sx={{ py: 4, justifyContent: "space-between", height: "100%" }}
+              rowGap={{ xs: "2rem", sm: 0 }}
+              columnGap={{ sm: 1, md: 0 }}
+              sx={{
+                py: { md: 4, xs: 0 },
+                justifyContent: "space-between",
+                height: "100%",
+              }}
             >
               {cardArr.map((ite) => (
                 <Cards key={ite.head} item={ite} />

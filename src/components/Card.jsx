@@ -8,7 +8,7 @@ import {
 
 const Cards = ({ item: { Icon, head, sub } }) => {
   return (
-    <Grid item xs={3.5} sx={{ height: "20.2rem" }}>
+    <Grid item md={3.5} sm={3.5} xs={12} sx={{ height: "20.2rem" }}>
       <Card
         width={"100%"}
         sx={{

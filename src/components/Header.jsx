@@ -65,13 +65,15 @@ function Header() {
           <Box sx={{ ml: "auto", display: { xs: "flex", sm: "none" } }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon sx={{ fontSize: "3rem" }} />
+              <MenuIcon
+                sx={{ fontSize: "3rem", color: "#18B067" }}
+                color="main"
+              />
             </IconButton>
             <Menu
               id="menu-appbar"

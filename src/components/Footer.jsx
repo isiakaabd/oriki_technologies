@@ -52,25 +52,30 @@ export default function Footer() {
                 item
                 container
                 sx={{
-                  // display: "grid",
+                  display: { xs: "grid", md: "flex" },
                   gap: { md: "3rem", xs: "1.5rem" },
                   justifyContent: "space-between",
+                  gridTemplateColumns: "1fr 1fr",
                   flexWrap: { md: "nowrap", xs: "wrap" },
                 }}
               >
-                <Grid item gridColumn={{ xs: "1/3", sm: 1 }}>
+                <Grid item flex={{ xs: 2, md: 1 }}>
                   <Avatar
                     src={logo2}
                     variant="square"
                     sx={{
-                      width: { sm: "10rem" },
+                      width: { xs: "100%", md: "10rem" },
                       "& img": { objectFit: "contain" },
                     }}
                   />
 
                   {/* <Socials /> */}
                 </Grid>
-                <Divider orientation="vertical" flexItem />
+                <Divider
+                  orientation="vertical"
+                  flexItem
+                  sx={{ display: { xs: "none", md: "block" } }}
+                />
                 <Grid item>
                   <Typography variant="h4" fontWeight={800} color="primary">
                     About Us
@@ -90,7 +95,11 @@ export default function Footer() {
                     </ListItem>
                   </List>
                 </Grid>
-                <Divider orientation="vertical" flexItem />
+                <Divider
+                  orientation="vertical"
+                  flexItem
+                  sx={{ display: { xs: "none", md: "block" } }}
+                />
 
                 <Grid item>
                   <Typography variant="h4" fontWeight={800} color="primary">
@@ -111,7 +120,11 @@ export default function Footer() {
                     </ListItem>
                   </List>
                 </Grid>
-                <Divider orientation="vertical" flexItem />
+                <Divider
+                  orientation="vertical"
+                  flexItem
+                  sx={{ display: { xs: "none", md: "block" } }}
+                />
                 <Grid item>
                   <Typography variant="h4" fontWeight={800} color="primary">
                     Join Us
@@ -125,9 +138,19 @@ export default function Footer() {
                     </ListItem>
                   </List>
                 </Grid>
-                <Divider orientation="vertical" flexItem />
-                <Grid item>
-                  <Typography variant="h4" fontWeight={800} color="primary">
+                <Divider
+                  orientation="vertical"
+                  flexItem
+                  sx={{ display: { xs: "none", md: "block" } }}
+                />
+                <Grid item gridColumn={"1/3"}>
+                  <Typography
+                    variant="h4"
+                    fontWeight={800}
+                    color="primary"
+                    textAlign={"center"}
+                    width={"100%"}
+                  >
                     Connect with Us
                   </Typography>
                   <Grid item container sx={{ py: 4 }}>
