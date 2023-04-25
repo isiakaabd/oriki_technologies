@@ -162,7 +162,7 @@ export default function Footer() {
                 variant="h5"
                 sx={{ width: "100%", py: 4, textAlign: "center" }}
               >
-                Copyright © 2022 Cheers
+                Copyright © 2023 Cheers
               </Typography>
             </Grid>
           </Toolbar>
