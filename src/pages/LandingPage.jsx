@@ -92,7 +92,7 @@ const LandingPage = () => {
         item
         container
         sx={{
-          height: { xs: "50vh", md: "calc(100vh - 80px)" },
+          height: { xs: "calc(100vh - 58px)", md: "calc(100vh - 80px)" },
           background: `#18B067 url(${img01}) center no-repeat `,
           backgroundSize: "cover",
 
@@ -203,7 +203,7 @@ const LandingPage = () => {
                 width={"100%"}
                 mt={3}
                 my={4}
-                textAlign={"right"}
+                textAlign={{ xs: "left", sm: "right" }}
                 gutterBottom
               >
                 Our Approach
@@ -357,7 +357,7 @@ const LandingPage = () => {
           width={"100%"}
           flexDirection={"column"}
           sx={{
-            py: { md: "15rem", sm: 2, xs: 0 },
+            py: { md: "15rem", sm: 2, xs: 4 },
 
             px: { xs: 0, md: 4 },
             justifyContent: "space-between",
@@ -368,7 +368,7 @@ const LandingPage = () => {
             <Typography
               variant="h1"
               fontSize={{ md: "5rem" }}
-              sx={{ lineHeight: "5.8rem" }}
+              sx={{ lineHeight: "5.8rem", pb: { xs: 2, sm: 0 } }}
               color={"secondary"}
               fontWeight={800}
               width={"100%"}
@@ -385,7 +385,7 @@ const LandingPage = () => {
               rowGap={{ xs: "2rem", sm: 0 }}
               columnGap={{ sm: 1, md: 0 }}
               sx={{
-                py: { md: 4, xs: 0 },
+                py: { md: 4, xs: 2 },
                 justifyContent: "space-between",
                 height: "100%",
                 zIndex: -10000,

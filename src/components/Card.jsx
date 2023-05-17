@@ -13,8 +13,8 @@ const Cards = ({ item: { Icon, head, sub } }) => {
       item
       md={3.5}
       sm={3.5}
-      xs={12}
-      sx={{ height: "20.2rem" }}
+      xs={10}
+      sx={{ height: "20.2rem", mx: "auto" }}
       component={motion.div}
       initial={{ scale: 0.5 }}
       animate={{ scale: 1 }}
