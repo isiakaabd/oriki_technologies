@@ -27,7 +27,7 @@ const pages = [
   },
   {
     name: "Join Us",
-    route: "/join ",
+    route: "# ",
   },
 ];
 
@@ -77,13 +77,13 @@ function Header() {
       sx={{ height: "max-content", py: 1, background: "transparent" }}
     >
       <Container maxWidth="lg">
-        <Toolbar disableGutters>
+        <Toolbar disableGutters sx={{ px: { xs: 0, md: 4 } }}>
           <Avatar
             component={Link}
             to="/"
             src={logo}
             sx={{
-              width: { xs: "15rem", sm: "18rem", md: "20rem" },
+              width: { xs: "18rem", sm: "18rem", md: "25vw" },
               "& img": { objectFit: "contain" },
               mr: "auto",
             }}
@@ -166,6 +166,7 @@ function Header() {
                   fontSize: { xs: "1.4rem", sm: "1.6rem", md: "1.9rem" },
                   display: "block",
                   fontWeight: 600,
+                  textTransform: "capitalize",
                 }}
               >
                 {page.name}

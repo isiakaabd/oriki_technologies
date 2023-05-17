@@ -37,8 +37,14 @@ const Socials = () => {
       justifyContent={{ md: "space-between", xs: "space-around" }}
     >
       {socialItems.map((social, index) => (
-        <social.Button url={"#"} quote={"#"} key={index}>
-           <social.Icon size={32} round />
+        <social.Button url={"#"} quote={"#"} color="#fff" bgS key={index}>
+           
+          <social.Icon
+            size={32}
+            round
+            iconFillColor="#035930"
+            bgStyle={{ fill: "#fff" }}
+          />
         </social.Button>
       ))}
     </Grid>

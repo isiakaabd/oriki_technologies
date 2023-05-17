@@ -9,11 +9,15 @@ import img05 from "./images/img05.png";
 import Chats from "./svgs/Chats";
 import Media from "./svgs/Media";
 import Mobile from "./svgs/Mobile";
+import O2 from "./images/O2.png";
+import O from "./images/O.png";
 
 export {
   logo2,
   logo,
   cheers,
+  O,
+  O2,
   img01,
   img02,
   Mobile,

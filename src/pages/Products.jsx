@@ -8,9 +8,11 @@ const Products = () => {
       item
       container
       sx={{
-        height: { md: "calc(100vh - 120px)" },
-        mb: "4rem",
-        // py: "4rem",
+        minHeight: { md: "calc(100vh - 65px)" },
+
+        // px: { xs: 0, md: 4 },
+        py: "3rem",
+        mb: "17rem",
         background: "rgba(217, 217, 217, 0.4)",
       }}
     >
@@ -18,11 +20,13 @@ const Products = () => {
         <Grid
           item
           container
-          gap={{ md: "4rem", xs: "2rem" }}
+          gap={{ md: "3.5rem", xs: "2rem" }}
           flexDirection={{ xs: "column", sm: "row" }}
-          sx={{ py: "2rem", height: "100%" }}
+          flexWrap={{ md: "nowrap", xs: "wrap" }}
+          sx={{ py: "5rem", height: "100%", px: { xs: 0, md: 4 } }}
         >
-          <Grid item flex={1} height="100%" order={{ md: 1, xs: 2 }}>
+          {" "}
+          <Grid item flex={1} height="100%">
             <Grid item container flexDirection={"column"} height="100%">
               <Grid item mb={4}>
                 <Avatar
@@ -39,6 +43,7 @@ const Products = () => {
                   variant="h3"
                   color={"secondary"}
                   width={"100%"}
+                  fontSize={{ md: "3rem" }}
                   textAlign={"justify"}
                   gutterBottom
                 >
@@ -48,7 +53,7 @@ const Products = () => {
                   truly meant to be, filled with love, thouthfulness and spirit.
                 </Typography>
               </Grid>
-              <Grid item mt="auto">
+              <Grid item mt="4rem">
                 <Button
                   variant="contained"
                   disableElevation
@@ -62,6 +67,7 @@ const Products = () => {
                     padding: ".4em 2em",
                     color: "#E5E5E5",
                     fontWeight: 800,
+                    backgroundColor: "#035930",
                     borderRadius: ".7rem",
                     textDecoration: "underline",
                     textUnderlineOffset: "5px",
@@ -73,8 +79,8 @@ const Products = () => {
                 </Button>
               </Grid>
             </Grid>
-          </Grid>{" "}
-          <Grid item flex={1}>
+          </Grid>
+          <Grid item>
             <Avatar
               src={img02}
               variant="square"
@@ -82,8 +88,8 @@ const Products = () => {
                 height: "100%",
                 background: "rgba(217, 217, 217, 0.4)",
                 width: "100%",
-                maxHeight: "40rem",
-
+                maxHeight: "100%",
+                maxWidth: "45rem",
                 filter: "drop-shadow(0px 8px 9px rgba(0, 0, 0, 0.15))",
                 borderRadius: ".7rem",
               }}

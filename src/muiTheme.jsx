@@ -23,7 +23,7 @@ export const muiTheme = createTheme({
     fontSize: 10,
     htmlFontSize: 10,
     h1: {
-      fontSize: "clamp(3rem, 2vw + 1rem, 4.5rem)",
+      fontSize: "clamp(4rem, 2vw, 5rem)",
       fontWeight: 800,
       color: "#fff",
     },
@@ -40,7 +40,7 @@ export const muiTheme = createTheme({
       fontWeight: 500,
     },
     h5: {
-      fontSize: "clamp(1.4rem,2vw + 1rem,2.1rem)",
+      fontSize: "clamp(1.4rem,2vw + 1rem,2.2rem)",
       fontWeight: 500,
     },
     h6: {

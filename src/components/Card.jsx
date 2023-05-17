@@ -5,15 +5,16 @@ import {
   Typography,
   CardActionArea,
 } from "@mui/material";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Cards = ({ item: { Icon, head, sub } }) => {
   return (
-    <Grid item md={3.5} sm={3.5} xs={12} sx={{ height: "20.2rem" }}>
+    <Grid item md={3.5} sm={3.5} xs={12} sx={{ height: "20.2rem", zIndex: -1 }}>
       <Card
         width={"100%"}
         sx={{
           height: "100%",
+
           "&:hover": {
             "& .MuiTypography-root": {
               color: "#fff",
@@ -60,6 +61,7 @@ const Cards = ({ item: { Icon, head, sub } }) => {
                 gutterBottom
                 fontWeight={700}
                 variant="h4"
+                sx={{ lineHeight: "2.8rem" }}
                 color={"secondary"}
               >
                 {head}

@@ -8,11 +8,10 @@ import {
   List,
   ListItem,
   ListItemText,
-  Slide,
   Typography,
 } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
-import { useRef } from "react";
+// import { useRef } from "react";
 
 const LandingPage = () => {
   const cardArr = [
@@ -109,7 +108,7 @@ const LandingPage = () => {
             alignItems={"center"}
             flexDirection={"column"}
             justifyContent={"center"}
-            sx={{ height: "100%", color: "#fff" }}
+            sx={{ height: "100%", color: "#fff", px: { xs: 0, md: 4 } }}
           >
             <motion.p
               initial={{ opacity: 0 }}
@@ -136,10 +135,10 @@ const LandingPage = () => {
             </motion.p>
             <Typography
               variant="h3"
-              textAlign="left"
+              textAlign="justify"
               width="100%"
               sx={{
-                maxWidth: { md: "70%", xs: "100%", sm: "90%" },
+                maxWidth: { md: "75%", xs: "100%", sm: "90%" },
                 mr: "auto",
               }}
             >
@@ -154,7 +153,7 @@ const LandingPage = () => {
         <Grid
           item
           container
-          sx={{ py: "3rem" }}
+          sx={{ pt: "2rem", pb: "3rem", px: { xs: 0, md: 4 } }}
           gap={{ md: "4rem", xs: "2rem" }}
           flexDirection={{ xs: "column", sm: "row" }}
         >
@@ -176,14 +175,16 @@ const LandingPage = () => {
                 sx={{
                   width: "100%",
                   height: "100%",
-                  maxHeight: "30rem",
-                  borderRadius: "2rem",
+                  minHeight: "46rem",
+                  "& img": {
+                    borderRadius: "2rem",
+                  },
                 }}
               />
             </motion.div>
           </Grid>
           <Grid item flex={1}>
-            <motion.p
+            <motion.h1
               initial={{ translateX: "100px" }}
               whileInView={{
                 translateX: "0",
@@ -196,14 +197,18 @@ const LandingPage = () => {
             >
               <Typography
                 variant="h1"
+                fontSize={{ md: "5rem" }}
+                sx={{ lineHeight: "5.8rem" }}
                 color={"secondary"}
                 width={"100%"}
+                mt={3}
+                my={4}
                 textAlign={"right"}
                 gutterBottom
               >
                 Our Approach
               </Typography>
-            </motion.p>
+            </motion.h1>
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{
@@ -216,11 +221,12 @@ const LandingPage = () => {
               style={{ textAlign: "left", width: "100%" }}
             >
               <Typography
-                variant="h6"
+                variant="h5"
                 color={"secondary"}
                 width={"100%"}
                 textAlign={"justify"}
                 gutterBottom
+                sx={{ mb: 2, lineHeight: "2.6rem" }}
               >
                 Our approach to Product design at Oriki Technologie is centered
                 on adding value. A deep understanding of our target audience in
@@ -228,10 +234,11 @@ const LandingPage = () => {
               </Typography>
 
               <Typography
-                variant="h6"
+                variant="h5"
                 color={"secondary"}
                 width={"100%"}
                 textAlign={"justify"}
+                sx={{ mb: 2, lineHeight: "2.6rem" }}
               >
                 At Oriki Technologies, we do not see gaps in the market, we see
                 opportunities to build bridges through innovation, strategic
@@ -247,14 +254,20 @@ const LandingPage = () => {
           container
           gap={{ md: "4rem", xs: "2rem" }}
           flexDirection={{ xs: "column", sm: "row" }}
-          sx={{ py: "3rem" }}
+          sx={{
+            py: "3rem",
+            height: "100%",
+            px: { xs: 0, md: 4 },
+          }}
         >
-          <Grid item flex={1}>
+          <Grid item flex={1} rowGap={{ md: "2.7rem" }}>
             <Typography
               variant="h1"
               color={"secondary"}
               width={"100%"}
               textAlign={"left"}
+              fontSize={{ md: "5rem" }}
+              sx={{ lineHeight: "5.8rem" }}
               gutterBottom
             >
               Our Core Values
@@ -263,8 +276,9 @@ const LandingPage = () => {
               variant="h1"
               color={"primary"}
               width={"100%"}
+              fontSize={{ md: "4.3rem" }}
+              sx={{ lineHeight: "5.8rem", fontWeight: 700 }}
               textAlign={"left"}
-              gutterBottom
             >
               INGENUITY
             </Typography>
@@ -277,18 +291,22 @@ const LandingPage = () => {
                     disableGutters
                     {...variantsLi}
                     disablePadding
+                    dense
                     component={motion.li}
                   >
                     <ListItemText
-                      primaryTypographyProps={{ textAlign: "left" }}
                       primary={
                         <Typography
+                          sx={{ fontSize: "2.4rem", lineHeight: "3.7rem" }}
                           color={"secondary"}
-                          variant="h6"
                           fontWeight={700}
                         >
                           {ite.abb} -
-                          <Typography variant="span" fontWeight={500}>
+                          <Typography
+                            variant="span"
+                            fontWeight={500}
+                            textAlign="left"
+                          >
                             {ite.value}
                           </Typography>
                         </Typography>
@@ -299,8 +317,13 @@ const LandingPage = () => {
               ))}
             </List>
           </Grid>
-          <Grid item flex={1} sx={{ height: "100%" }}>
-            <Grid item container justifyContent={"center"}>
+          <Grid item flex={1.1} sx={{ height: "100%" }}>
+            <Grid
+              item
+              container
+              justifyContent={"center"}
+              sx={{ height: "100%", mt: 3 }}
+            >
               <motion.div
                 initial={{ translateX: "500px" }}
                 whileInView={{
@@ -318,7 +341,7 @@ const LandingPage = () => {
                   sx={{
                     width: "100%",
                     height: "100%",
-                    maxHeight: "30rem",
+                    // maxHeight: "30rem",
                     borderRadius: "2rem",
                   }}
                 />
@@ -334,8 +357,9 @@ const LandingPage = () => {
           width={"100%"}
           flexDirection={"column"}
           sx={{
-            py: 4,
-            p: { md: 10, sm: 2, xs: 0 },
+            py: { md: "15rem", sm: 2, xs: 0 },
+
+            px: { xs: 0, md: 4 },
             justifyContent: "space-between",
             height: "100%",
           }}
@@ -343,6 +367,8 @@ const LandingPage = () => {
           <Grid item>
             <Typography
               variant="h1"
+              fontSize={{ md: "5rem" }}
+              sx={{ lineHeight: "5.8rem" }}
               color={"secondary"}
               fontWeight={800}
               width={"100%"}

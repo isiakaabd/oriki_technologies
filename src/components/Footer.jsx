@@ -15,16 +15,16 @@ import Socials from "./Socials";
 import { Fragment } from "react";
 import { logo2 } from "@assets/index";
 
-const options = [
-  {
-    name: "Cheers",
-    link: "#",
-  },
-  {
-    name: "Oriki",
-    link: "#",
-  },
-];
+// const options = [
+//   {
+//     name: "Cheers",
+//     link: "#",
+//   },
+//   {
+//     name: "Oriki",
+//     link: "#",
+//   },
+// ];
 const text = {
   fontSize: "clamp(1.4rem,2vw,1.85rem)",
   fontWeight: 500,
@@ -47,24 +47,30 @@ export default function Footer() {
       >
         <Container maxWidth="lg">
           <Toolbar disableGutters>
-            <Grid item container flexDirection={"column"}>
+            <Grid
+              item
+              container
+              flexDirection={"column"}
+              sx={{ px: { xs: 0, md: 4 } }}
+            >
               <Grid
                 item
                 container
                 sx={{
                   display: { xs: "grid", md: "flex" },
-                  gap: { md: "3rem", xs: "1.5rem" },
+                  gap: { md: "1.5rem", xs: "1.5rem" },
                   justifyContent: "space-between",
                   gridTemplateColumns: "1fr 1fr",
                   flexWrap: { md: "nowrap", xs: "wrap" },
                 }}
               >
-                <Grid item>
+                <Grid item flex={1}>
                   <Avatar
                     src={logo2}
                     variant="square"
                     sx={{
-                      width: { xs: "100%", md: "10rem" },
+                      width: "100%",
+                      height: "100%",
                       "& img": { objectFit: "contain" },
                     }}
                   />
@@ -76,7 +82,7 @@ export default function Footer() {
                   flexItem
                   sx={{ display: { xs: "none", md: "block" } }}
                 />
-                <Grid item>
+                <Grid item flex={1}>
                   <Typography variant="h4" fontWeight={800} color="primary">
                     About Us
                   </Typography>
@@ -101,7 +107,7 @@ export default function Footer() {
                   sx={{ display: { xs: "none", md: "block" } }}
                 />
 
-                <Grid item>
+                <Grid item flex={1}>
                   <Typography variant="h4" fontWeight={800} color="primary">
                     Our Products
                   </Typography>
@@ -125,7 +131,7 @@ export default function Footer() {
                   flexItem
                   sx={{ display: { xs: "none", md: "block" } }}
                 />
-                <Grid item>
+                <Grid item flex={1}>
                   <Typography variant="h4" fontWeight={800} color="primary">
                     Join Us
                   </Typography>
