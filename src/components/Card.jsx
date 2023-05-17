@@ -9,13 +9,27 @@ import { motion } from "framer-motion";
 
 const Cards = ({ item: { Icon, head, sub } }) => {
   return (
-    <Grid item md={3.5} sm={3.5} xs={12} sx={{ height: "20.2rem", zIndex: -1 }}>
+    <Grid
+      item
+      md={3.5}
+      sm={3.5}
+      xs={12}
+      sx={{ height: "20.2rem" }}
+      component={motion.div}
+      initial={{ scale: 0.5 }}
+      animate={{ scale: 1 }}
+      whileHover={{
+        scale: 1.2,
+        transition: { duration: 0.3 },
+        background: "#18B067",
+      }}
+    >
       <Card
         width={"100%"}
         sx={{
           height: "100%",
-
           "&:hover": {
+            zIndex: 1,
             "& .MuiTypography-root": {
               color: "#fff",
             },
@@ -28,14 +42,6 @@ const Cards = ({ item: { Icon, head, sub } }) => {
             fill: "#fff",
             stroke: "#fff",
           },
-        }}
-        component={motion.div}
-        initial={{ scale: 0.5, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        whileHover={{
-          scale: 1.2,
-          transition: { duration: 0.3 },
-          background: "#18B067",
         }}
       >
         <CardActionArea sx={{ height: "100%" }}>

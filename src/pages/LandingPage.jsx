@@ -388,6 +388,8 @@ const LandingPage = () => {
                 py: { md: 4, xs: 0 },
                 justifyContent: "space-between",
                 height: "100%",
+                zIndex: -10000,
+                isolation: "isolate",
               }}
             >
               {cardArr.map((ite) => (

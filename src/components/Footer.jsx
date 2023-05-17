@@ -14,6 +14,7 @@ import {
 import Socials from "./Socials";
 import { Fragment } from "react";
 import { logo2 } from "@assets/index";
+import { Link } from "react-router-dom";
 
 // const options = [
 //   {
@@ -87,13 +88,25 @@ export default function Footer() {
                     About Us
                   </Typography>
                   <List>
-                    <ListItem disableGutters dense>
+                    <ListItem
+                      disableGutters
+                      dense
+                      component={Link}
+                      to="#"
+                      sx={{ font: "inherit", color: "inherit" }}
+                    >
                       <ListItemText
                         primaryTypographyProps={text}
                         primary="Services"
                       />
                     </ListItem>
-                    <ListItem disableGutters dense>
+                    <ListItem
+                      disableGutters
+                      dense
+                      component={Link}
+                      to="#"
+                      sx={{ font: "inherit", color: "inherit" }}
+                    >
                       <ListItemText
                         primaryTypographyProps={text}
                         primary="Contact Us"
@@ -112,13 +125,25 @@ export default function Footer() {
                     Our Products
                   </Typography>
                   <List>
-                    <ListItem disableGutters dense>
+                    <ListItem
+                      disableGutters
+                      dense
+                      component={Link}
+                      to="#"
+                      sx={{ font: "inherit", color: "inherit" }}
+                    >
                       <ListItemText
                         primaryTypographyProps={text}
                         primary="Cheers"
                       />
                     </ListItem>
-                    <ListItem disableGutters dense>
+                    <ListItem
+                      disableGutters
+                      dense
+                      component={Link}
+                      to="#"
+                      sx={{ font: "inherit", color: "inherit" }}
+                    >
                       <ListItemText
                         primaryTypographyProps={text}
                         primary="Oriki Lorem"
@@ -136,7 +161,13 @@ export default function Footer() {
                     Join Us
                   </Typography>
                   <List>
-                    <ListItem disableGutters dense>
+                    <ListItem
+                      disableGutters
+                      dense
+                      component={Link}
+                      to="#"
+                      sx={{ font: "inherit", color: "inherit" }}
+                    >
                       <ListItemText
                         primaryTypographyProps={text}
                         primary="Career at Oriki"
