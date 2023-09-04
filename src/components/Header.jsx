@@ -76,7 +76,7 @@ function Header() {
       color="secondary"
       sx={{ height: "max-content", py: 1, background: "transparent" }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ px: { xs: 0, md: 4 } }}>
           <Avatar
             component={Link}

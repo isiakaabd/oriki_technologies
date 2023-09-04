@@ -5,7 +5,7 @@ import { O, O2 } from "@assets/index";
 
 const MainPage = () => {
   const location = useLocation();
-  console.log(location.pathname);
+
   return (
     <Grid
       item
@@ -23,8 +23,9 @@ const MainPage = () => {
           // url(img_flwr.gif) right bottom no-repeat
           background:
             location.pathname === "/"
-              ? ` url(${O}) -50px bottom no-repeat, url(${O2}) right 90vh no-repeat `
+              ? ` url(${O2}) right 90vh no-repeat `
               : null,
+          //  url(${O}) -50px bottom no-repeat,
         }}
       >
         <Outlet />

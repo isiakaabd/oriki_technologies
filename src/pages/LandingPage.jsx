@@ -14,23 +14,23 @@ import { AnimatePresence, motion } from "framer-motion";
 // import { useRef } from "react";
 
 const LandingPage = () => {
-  const cardArr = [
-    {
-      Icon: Chats,
-      head: "General Support",
-      sub: "support@oriki.letters.africa",
-    },
-    {
-      Icon: Mobile,
-      head: "Mobile",
-      sub: "+234 705 353 9199",
-    },
-    {
-      Icon: Media,
-      head: "Media",
-      sub: "socials@oriki.letters.africa",
-    },
-  ];
+  // const cardArr = [
+  //   {
+  //     Icon: Chats,
+  //     head: "General Support",
+  //     sub: "hello@orikitechnologies.com",
+  //   },
+  //   // {
+  //   //   Icon: Mobile,
+  //   //   head: "Mobile",
+  //   //   sub: "+234 705 353 9199",
+  //   // },
+  //   // {
+  //   //   Icon: Media,
+  //   //   head: "Media",
+  //   //   sub: "socials@oriki.letters.africa",
+  //   // },
+  // ];
   const arr = [
     {
       abb: "I",
@@ -46,7 +46,7 @@ const LandingPage = () => {
     },
     {
       abb: "E",
-      value: " We are ETHICAL whilst ENRICHING lives",
+      value: " We are ETHICAL whilst enriching lives",
     },
     {
       abb: "N",
@@ -101,7 +101,7 @@ const LandingPage = () => {
           textAlign: "left",
         }}
       >
-        <Container maxWidth="lg" sx={{ height: "100%" }}>
+        <Container maxWidth="xl" sx={{ height: "100%" }}>
           <Grid
             item
             container
@@ -134,10 +134,11 @@ const LandingPage = () => {
               </Typography>
             </motion.p>
             <Typography
-              variant="h3"
+              variant="h6"
               textAlign="justify"
               width="100%"
               sx={{
+                fontWeight: 500,
                 maxWidth: { md: "75%", xs: "100%", sm: "90%" },
                 mr: "auto",
               }}
@@ -149,15 +150,16 @@ const LandingPage = () => {
           </Grid>
         </Container>
       </Grid>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl" sx={{ mt: 8 }}>
         <Grid
           item
           container
-          sx={{ pt: "2rem", pb: "3rem", px: { xs: 0, md: 4 } }}
+          sx={{ margin: "auto", pt: "2rem", pb: "3rem", px: { xs: 0, md: 4 } }}
           gap={{ md: "4rem", xs: "2rem" }}
+          flexWrap={{ md: "nowrap" }}
           flexDirection={{ xs: "column", sm: "row" }}
         >
-          <Grid item flex={1}>
+          <Grid item sm={6.5} xs={10}>
             <motion.div
               initial={{ translateX: "-500px" }}
               whileInView={{
@@ -183,7 +185,7 @@ const LandingPage = () => {
               />
             </motion.div>
           </Grid>
-          <Grid item flex={1}>
+          <Grid item sm={5.5} xs={10}>
             <motion.h1
               initial={{ translateX: "100px" }}
               whileInView={{
@@ -197,9 +199,9 @@ const LandingPage = () => {
             >
               <Typography
                 variant="h1"
-                fontSize={{ md: "5rem" }}
+                color="secondary"
+                fontSize={{ md: "5rem", sm: "4rem", xs: "1.8rem" }}
                 sx={{ lineHeight: "5.8rem" }}
-                color={"secondary"}
                 width={"100%"}
                 mt={3}
                 my={4}
@@ -226,9 +228,9 @@ const LandingPage = () => {
                 width={"100%"}
                 textAlign={"justify"}
                 gutterBottom
-                sx={{ mb: 2, lineHeight: "2.6rem" }}
+                sx={{ mb: 2, fontWeight: 500, lineHeight: "2.6rem" }}
               >
-                Our approach to Product design at Oriki Technologie is centered
+                Our approach to product design at Oriki Technologies is centered
                 on adding value. A deep understanding of our target audience in
                 relation to the dynamics of the market is what sets us apart.
               </Typography>
@@ -238,7 +240,8 @@ const LandingPage = () => {
                 color={"secondary"}
                 width={"100%"}
                 textAlign={"justify"}
-                sx={{ mb: 2, lineHeight: "2.6rem" }}
+                gutterBottom
+                sx={{ mb: 2, fontWeight: 500, lineHeight: "2.6rem" }}
               >
                 At Oriki Technologies, we do not see gaps in the market, we see
                 opportunities to build bridges through innovation, strategic
@@ -248,7 +251,7 @@ const LandingPage = () => {
           </Grid>
         </Grid>
       </Container>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl" sx={{ mb: 8 }}>
         <Grid
           item
           container
@@ -266,7 +269,7 @@ const LandingPage = () => {
               color={"secondary"}
               width={"100%"}
               textAlign={"left"}
-              fontSize={{ md: "5rem" }}
+              fontSize={{ md: "5rem", sm: "4rem", xs: "1.8rem" }}
               sx={{ lineHeight: "5.8rem" }}
               gutterBottom
             >
@@ -284,8 +287,8 @@ const LandingPage = () => {
             </Typography>
 
             <List dense component={motion.ul} variants={variants}>
-              {arr.map((ite) => (
-                <AnimatePresence>
+              {arr.map((ite, idx) => (
+                <AnimatePresence key={idx}>
                   <ListItem
                     key={ite.value}
                     disableGutters
@@ -295,9 +298,10 @@ const LandingPage = () => {
                     component={motion.li}
                   >
                     <ListItemText
+                      primaryTypographyProps={{ m: 0 }}
                       primary={
                         <Typography
-                          sx={{ fontSize: "2.4rem", lineHeight: "3.7rem" }}
+                          sx={{ fontSize: "2.4rem" }}
                           color={"secondary"}
                           fontWeight={700}
                         >
@@ -350,7 +354,7 @@ const LandingPage = () => {
           </Grid>
         </Grid>
       </Container>
-      <Container maxWidth="lg" height="100%">
+      {/* <Container maxWidth="xl" height="100%">
         <Grid
           item
           container
@@ -398,7 +402,7 @@ const LandingPage = () => {
             </Grid>
           </Grid>
         </Grid>
-      </Container>
+      </Container> */}
     </Grid>
   );
 };

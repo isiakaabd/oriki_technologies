@@ -14,7 +14,7 @@ import {
 import Socials from "./Socials";
 import { Fragment } from "react";
 import { logo2 } from "@assets/index";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // const options = [
 //   {
@@ -30,7 +30,23 @@ const text = {
   fontSize: "clamp(1.4rem,2vw,1.85rem)",
   fontWeight: 500,
 };
+
 export default function Footer() {
+  const navigate = useNavigate();
+
+  function scrollToTopAndNavigate(link) {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // This makes the scroll smooth
+    });
+
+    if (link !== "/") {
+      setTimeout(() => {
+        navigate(link);
+      }, 0);
+    }
+  }
+
   return (
     <Fragment>
       <CssBaseline />
@@ -46,13 +62,13 @@ export default function Footer() {
           py: 4,
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Grid
               item
               container
               flexDirection={"column"}
-              sx={{ px: { xs: 0, md: 4 } }}
+              sx={{ px: { xs: 0, md: 5 }, pt: { md: 3 }, pb: { md: 5 } }}
             >
               <Grid
                 item
@@ -87,7 +103,7 @@ export default function Footer() {
                   <Typography variant="h4" fontWeight={800} color="primary">
                     About Us
                   </Typography>
-                  <List>
+                  <List dense>
                     <ListItem
                       disableGutters
                       dense
@@ -104,7 +120,7 @@ export default function Footer() {
                       disableGutters
                       dense
                       component={Link}
-                      to="#"
+                      to="mailto:hello@orikitechnologies.com"
                       sx={{ font: "inherit", color: "inherit" }}
                     >
                       <ListItemText
@@ -128,25 +144,13 @@ export default function Footer() {
                     <ListItem
                       disableGutters
                       dense
-                      component={Link}
-                      to="#"
+                      // component={Link}
+                      onClick={() => scrollToTopAndNavigate("/products")}
                       sx={{ font: "inherit", color: "inherit" }}
                     >
                       <ListItemText
                         primaryTypographyProps={text}
                         primary="Cheers"
-                      />
-                    </ListItem>
-                    <ListItem
-                      disableGutters
-                      dense
-                      component={Link}
-                      to="#"
-                      sx={{ font: "inherit", color: "inherit" }}
-                    >
-                      <ListItemText
-                        primaryTypographyProps={text}
-                        primary="Oriki Lorem"
                       />
                     </ListItem>
                   </List>
@@ -199,7 +203,7 @@ export default function Footer() {
                 variant="h5"
                 sx={{ width: "100%", py: 4, textAlign: "center" }}
               >
-                Copyright © 2023 Cheers
+                Copyright © {new Date().getFullYear()} Cheers
               </Typography>
             </Grid>
           </Toolbar>

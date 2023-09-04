@@ -53,6 +53,9 @@ export const muiTheme = createTheme({
       fontWeight: 500,
       lineHeight: 1.85,
     },
+    text: {
+      primary: "#737373",
+    },
   },
   components: {
     MuiDivider: {

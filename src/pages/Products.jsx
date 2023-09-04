@@ -16,7 +16,7 @@ const Products = () => {
         background: "rgba(217, 217, 217, 0.4)",
       }}
     >
-      <Container maxWidth="lg" height="100%">
+      <Container maxWidth="xl" height="100%">
         <Grid
           item
           container
@@ -43,6 +43,7 @@ const Products = () => {
                   variant="h3"
                   color={"secondary"}
                   width={"100%"}
+                  fontWeight={500}
                   fontSize={{ md: "3rem" }}
                   textAlign={"justify"}
                   gutterBottom
@@ -73,6 +74,7 @@ const Products = () => {
                     textUnderlineOffset: "5px",
                     textTransform: "initial",
                     fontSize: "clamp(1.4rem, 2vw + 1rem, 2.5rem)",
+                    width: { md: "31rem" },
                   }}
                 >
                   Get Started

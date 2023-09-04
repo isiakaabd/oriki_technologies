@@ -1,13 +1,13 @@
 import { Grid } from "@mui/material";
 import {
   WhatsappShareButton,
-  WhatsappIcon,
   TwitterShareButton,
   LinkedinIcon,
   LinkedinShareButton,
   TwitterIcon,
   FacebookIcon,
   FacebookShareButton,
+  InstapaperIcon,
 } from "react-share";
 
 const socialItems = [
@@ -24,7 +24,7 @@ const socialItems = [
     Button: TwitterShareButton,
   },
   {
-    Icon: WhatsappIcon,
+    Icon: InstapaperIcon,
     Button: WhatsappShareButton,
   },
 ];
@@ -37,7 +37,7 @@ const Socials = () => {
       justifyContent={{ md: "space-between", xs: "space-around" }}
     >
       {socialItems.map((social, index) => (
-        <social.Button url={"#"} quote={"#"} color="#fff" bgS key={index}>
+        <social.Button url={"#"} quote={"#"} color="#fff" key={index}>
            
           <social.Icon
             size={32}
