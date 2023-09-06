@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { Container, Toolbar, Typography } from "@mui/material";
 import { img01, img05 } from "@assets/index";
 
@@ -16,19 +16,22 @@ const images = [
     subtext: " To enhance the human potential through innovative technology",
   },
 ];
+
 const ImageSlider = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const controls = useAnimation();
 
   const handleNextClick = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
   };
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       // Automatically go to the next image
       handleNextClick();
-    }, 5000); // Change image every 3 seconds
+    }, 5000); // Change image every 5 seconds
 
     return () => {
       // Clean up the interval when the component unmounts
@@ -36,13 +39,19 @@ const ImageSlider = () => {
     };
   }, []); // Run this effect only once
 
+  useEffect(() => {
+    // Animate the background image sliding across the page
+    controls.start({
+      backgroundPositionX: ["0%", "100%"],
+      transition: { duration: 5 },
+    });
+  }, [currentImageIndex, controls]);
+
   return (
-    // <Grid item container sx={{ height: "100%", p: 0 }}>
-    //   <AnimatePresence mode="wait">
     <motion.div
       key={currentImageIndex}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      initial={{ opacity: 1, backgroundPositionX: "0%" }}
+      animate={controls}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
       style={{
@@ -54,13 +63,8 @@ const ImageSlider = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         width: "100%",
-        //   height: "60vh",
-        //   height: "calc(100vh - 80px)",
-        heght: "100%",
+        // height: "100vh",
         position: "relative",
-        //   location.pathname === "/"
-        //     ? ` url(${O2}) right 90vh no-repeat `
-        //     : null,
       }}
     >
       <Container maxWidth="xl" sx={{ height: "100%" }}>
@@ -95,7 +99,7 @@ const ImageSlider = () => {
             </Typography>
           </motion.p>
           <Typography
-            variant="h6"
+            variant="h5"
             textAlign="justify"
             width="100%"
             sx={{
@@ -110,8 +114,6 @@ const ImageSlider = () => {
         </Toolbar>
       </Container>
     </motion.div>
-    //   </AnimatePresence>
-    // </Grid>
   );
 };
 
