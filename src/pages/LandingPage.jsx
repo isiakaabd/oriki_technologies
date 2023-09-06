@@ -1,5 +1,4 @@
-import { Cards } from "@/components";
-import { img01, img03, img04, Chats, Media, Mobile } from "@assets";
+import { img03, img04 } from "@assets";
 
 import {
   Avatar,
@@ -11,26 +10,9 @@ import {
   Typography,
 } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
-// import { useRef } from "react";
+import ImageSlider from "../components/Hero";
 
 const LandingPage = () => {
-  // const cardArr = [
-  //   {
-  //     Icon: Chats,
-  //     head: "General Support",
-  //     sub: "hello@orikitechnologies.com",
-  //   },
-  //   // {
-  //   //   Icon: Mobile,
-  //   //   head: "Mobile",
-  //   //   sub: "+234 705 353 9199",
-  //   // },
-  //   // {
-  //   //   Icon: Media,
-  //   //   head: "Media",
-  //   //   sub: "socials@oriki.letters.africa",
-  //   // },
-  // ];
   const arr = [
     {
       abb: "I",
@@ -93,62 +75,15 @@ const LandingPage = () => {
         container
         sx={{
           height: { xs: "calc(100vh - 58px)", md: "calc(100vh - 80px)" },
-          background: `#18B067 url(${img01}) center no-repeat `,
+          backgroundColor: "#18B067",
+          //url(${img01}) center no-repeat `,
           backgroundSize: "cover",
-
           backgroundOrigin: "content-box",
           mb: "3rem",
           textAlign: "left",
         }}
       >
-        <Container maxWidth="xl" sx={{ height: "100%" }}>
-          <Grid
-            item
-            container
-            alignItems={"center"}
-            flexDirection={"column"}
-            justifyContent={"center"}
-            sx={{ height: "100%", color: "#fff", px: { xs: 0, md: 4 } }}
-          >
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{
-                opacity: 1,
-                transition: {
-                  duration: 3,
-                },
-              }}
-              style={{ textAlign: "left", width: "100%" }}
-              viewport={{ once: true }}
-            >
-              <Typography
-                sx={{
-                  fontWeight: 800,
-                  width: "100%",
-
-                  lineHeight: "12rem",
-                  fontSize: { md: "8vw", xs: "12vw", sm: "7rem" },
-                }}
-              >
-                Our Mission
-              </Typography>
-            </motion.p>
-            <Typography
-              variant="h6"
-              textAlign="justify"
-              width="100%"
-              sx={{
-                fontWeight: 500,
-                maxWidth: { md: "75%", xs: "100%", sm: "90%" },
-                mr: "auto",
-              }}
-            >
-              At Oriki, we want to showcase and maximize human possibilities by
-              leveraging technology to build creative and innovative products
-              while keeping our customers at the center stage.
-            </Typography>
-          </Grid>
-        </Container>
+        <ImageSlider />
       </Grid>
       <Container maxWidth="xl" sx={{ mt: 8 }}>
         <Grid
@@ -159,7 +94,7 @@ const LandingPage = () => {
           flexWrap={{ md: "nowrap" }}
           flexDirection={{ xs: "column", sm: "row" }}
         >
-          <Grid item sm={6.5} xs={10}>
+          <Grid item sm={6.5} xs={12}>
             <motion.div
               initial={{ translateX: "-500px" }}
               whileInView={{
@@ -185,7 +120,7 @@ const LandingPage = () => {
               />
             </motion.div>
           </Grid>
-          <Grid item sm={5.5} xs={10}>
+          <Grid item sm={5.5} xs={12}>
             <motion.h1
               initial={{ translateX: "100px" }}
               whileInView={{
@@ -198,7 +133,7 @@ const LandingPage = () => {
               style={{ textAlign: "left", width: "100%" }}
             >
               <Typography
-                variant="h1"
+                variant="p"
                 color="secondary"
                 fontSize={{ md: "5rem", sm: "4rem", xs: "1.8rem" }}
                 sx={{ lineHeight: "5.8rem" }}
@@ -408,3 +343,50 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
+
+//  <Grid
+//    item
+//    container
+//    alignItems={"center"}
+//    flexDirection={"column"}
+//    justifyContent={"center"}
+//    sx={{ height: "100%", color: "#fff", px: { xs: 0, md: 4 } }}
+//  >
+//    <motion.p
+//      initial={{ opacity: 0 }}
+//      whileInView={{
+//        opacity: 1,
+//        transition: {
+//          duration: 3,
+//        },
+//      }}
+//      style={{ textAlign: "left", width: "100%" }}
+//      viewport={{ once: true }}
+//    >
+//      <Typography
+//        sx={{
+//          fontWeight: 800,
+//          width: "100%",
+
+//          lineHeight: "12rem",
+//          fontSize: { md: "8vw", xs: "12vw", sm: "7rem" },
+//        }}
+//      >
+//        Our Mission
+//      </Typography>
+//    </motion.p>
+//    <Typography
+//      variant="h6"
+//      textAlign="justify"
+//      width="100%"
+//      sx={{
+//        fontWeight: 500,
+//        maxWidth: { md: "75%", xs: "100%", sm: "90%" },
+//        mr: "auto",
+//      }}
+//    >
+//      At Oriki, we want to showcase and maximize human possibilities by
+//      leveraging technology to build creative and innovative products while
+//      keeping our customers at the center stage.
+//    </Typography>
+//  </Grid>;

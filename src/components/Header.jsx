@@ -13,7 +13,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { logo } from "@assets";
+import { logo, O2 } from "@assets";
 import { motion, useCycle } from "framer-motion";
 
 const pages = [
@@ -25,10 +25,10 @@ const pages = [
     name: " Our Products",
     route: "/products",
   },
-  {
-    name: "Join Us",
-    route: "# ",
-  },
+  // {
+  //   name: "Join Us",
+  //   route: "# ",
+  // },
 ];
 
 function Header() {
@@ -77,7 +77,20 @@ function Header() {
       sx={{ height: "max-content", py: 1, background: "transparent" }}
     >
       <Container maxWidth="xl">
-        <Toolbar disableGutters sx={{ px: { xs: 0, md: 4 } }}>
+        <Toolbar
+          disableGutters
+          sx={{
+            px: {
+              xs: 0,
+              md: 4,
+
+              background:
+                location.pathname === "/"
+                  ? ` url(${O2}) right 90vh no-repeat `
+                  : null,
+            },
+          }}
+        >
           <Avatar
             component={Link}
             to="/"
@@ -124,11 +137,12 @@ function Header() {
                     display: { xs: "block", md: "none" },
                   }}
                 >
-                  {pages.map((page) => (
+                  {pages.map((page, dx) => (
                     <motion.li
                       variants={variantsLi}
                       whileHover={{ scale: 0.95 }}
                       whileTap={{ scale: 0.95 }}
+                      key={dx}
                     >
                       <MenuItem
                         key={page.route}

@@ -1,52 +1,45 @@
-import { Grid } from "@mui/material";
 import {
-  WhatsappShareButton,
-  TwitterShareButton,
-  LinkedinIcon,
-  LinkedinShareButton,
-  TwitterIcon,
-  FacebookIcon,
-  FacebookShareButton,
-  InstapaperIcon,
-} from "react-share";
+  FacebookTwoTone,
+  Instagram,
+  LinkedIn,
+  Twitter,
+} from "@mui/icons-material";
+import { Grid, IconButton } from "@mui/material";
 
 const socialItems = [
   {
-    Icon: FacebookIcon,
-    Button: FacebookShareButton,
+    Icon: FacebookTwoTone,
   },
   {
-    Button: LinkedinShareButton,
-    Icon: LinkedinIcon,
+    Icon: LinkedIn,
   },
   {
-    Icon: TwitterIcon,
-    Button: TwitterShareButton,
+    Icon: Twitter,
   },
   {
-    Icon: InstapaperIcon,
-    Button: WhatsappShareButton,
+    Icon: Instagram,
   },
 ];
 
 const Socials = () => {
   return (
-    <Grid
-      item
-      container
-      justifyContent={{ md: "space-between", xs: "space-around" }}
-    >
-      {socialItems.map((social, index) => (
-        <social.Button url={"#"} quote={"#"} color="#fff" key={index}>
-           
-          <social.Icon
-            size={32}
-            round
-            iconFillColor="#035930"
-            bgStyle={{ fill: "#fff" }}
-          />
-        </social.Button>
-      ))}
+    <Grid item container>
+      <Grid
+        item
+        container
+        justifyContent="space-between"
+        rowGap={2}
+        flexWrap={{ md: "nowrap" }}
+      >
+        {socialItems.map((social, index) => (
+          <IconButton
+            sx={{ bgcolor: "#fff", "&:hover": { bgcolor: "#fff" } }}
+            key={index}
+          >
+            <social.Icon style={{ fill: "#6A1347", fontSize: "2.5rem" }} />
+          </IconButton>
+        ))}
+      </Grid>
     </Grid>
   );
 };

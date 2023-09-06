@@ -16,16 +16,6 @@ import { Fragment } from "react";
 import { logo2 } from "@assets/index";
 import { Link, useNavigate } from "react-router-dom";
 
-// const options = [
-//   {
-//     name: "Cheers",
-//     link: "#",
-//   },
-//   {
-//     name: "Oriki",
-//     link: "#",
-//   },
-// ];
 const text = {
   fontSize: "clamp(1.4rem,2vw,1.85rem)",
   fontWeight: 500,
@@ -101,21 +91,9 @@ export default function Footer() {
                 />
                 <Grid item flex={1}>
                   <Typography variant="h4" fontWeight={800} color="primary">
-                    About Us
+                    Contact Us
                   </Typography>
                   <List dense>
-                    <ListItem
-                      disableGutters
-                      dense
-                      component={Link}
-                      to="#"
-                      sx={{ font: "inherit", color: "inherit" }}
-                    >
-                      <ListItemText
-                        primaryTypographyProps={text}
-                        primary="Services"
-                      />
-                    </ListItem>
                     <ListItem
                       disableGutters
                       dense
@@ -125,7 +103,7 @@ export default function Footer() {
                     >
                       <ListItemText
                         primaryTypographyProps={text}
-                        primary="Contact Us"
+                        primary="Contact"
                       />
                     </ListItem>
                   </List>
@@ -155,7 +133,7 @@ export default function Footer() {
                     </ListItem>
                   </List>
                 </Grid>
-                <Divider
+                {/* <Divider
                   orientation="vertical"
                   flexItem
                   sx={{ display: { xs: "none", md: "block" } }}
@@ -178,7 +156,7 @@ export default function Footer() {
                       />
                     </ListItem>
                   </List>
-                </Grid>
+                </Grid> */}
                 <Divider
                   orientation="vertical"
                   flexItem
