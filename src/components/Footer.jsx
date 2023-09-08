@@ -103,7 +103,7 @@ export default function Footer() {
                     >
                       <ListItemText
                         primaryTypographyProps={text}
-                        primary="Email"
+                        primary="hello@orikitechnologies.com"
                       />
                     </ListItem>
                   </List>

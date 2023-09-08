@@ -36,7 +36,7 @@ const Socials = () => {
             sx={{ bgcolor: "#fff", "&:hover": { bgcolor: "#fff" } }}
             key={index}
           >
-            <social.Icon style={{ fill: "#6A1347", fontSize: "2.5rem" }} />
+            <social.Icon style={{ fill: "#18B067", fontSize: "2.5rem" }} />
           </IconButton>
         ))}
       </Grid>

@@ -5,15 +5,15 @@ import { img01, img05 } from "@assets/index";
 
 const images = [
   {
+    images: img05,
+    text: "Our Vision",
+    subtext: " To enhance the human potential through innovative technology",
+  },
+  {
     images: img01,
     text: " Our Mission",
     subtext:
       "At Oriki, we want to showcase and maximize human possibilities by leveraging technology to build creative and innovative products while keeping our customers at the center stage.",
-  },
-  {
-    images: img05,
-    text: "Our Vision",
-    subtext: " To enhance the human potential through innovative technology",
   },
 ];
 
@@ -43,7 +43,7 @@ const ImageSlider = () => {
     // Animate the background image sliding across the page
     controls.start({
       backgroundPositionX: ["0%", "100%"],
-      transition: { duration: 5 },
+      transition: { duration: 50 },
     });
   }, [currentImageIndex, controls]);
 
@@ -99,7 +99,7 @@ const ImageSlider = () => {
             </Typography>
           </motion.p>
           <Typography
-            variant="h5"
+            variant="h3"
             textAlign="justify"
             width="100%"
             sx={{
